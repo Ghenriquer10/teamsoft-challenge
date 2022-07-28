@@ -5,12 +5,10 @@ import ProductProvider from './contexts/productData'
 
 function App() {
   return (
-    <>
       <ProductProvider>
         <GlobalStyle/>
         <HandleRoutes/>
       </ProductProvider>
-    </>
   );
 }
 

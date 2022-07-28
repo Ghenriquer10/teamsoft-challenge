@@ -1,23 +1,15 @@
-import React, {useContext, useEffect} from 'react'
+import React from 'react'
+
 import * as C from './style'
 import ProductAbout from '../../components/ProductAbout'
 import ProductIngredient from '../../components/ProductIngredient'
-import apiData from '../../services/api'
-import ProductProvider from '../../contexts/productData'
+import Cart from '../../components/Cart'
 
 export default function Product () {
 
-    const {setProduct} = useContext(ProductProvider)
-
-    useEffect(() => {
-        apiData.get()
-            .then((response) => {
-                setProduct(response.data)
-            })
-    }, [setProduct])
-
     return(
         <C.Container>
+            <Cart/>
             <ProductAbout/>
             <ProductIngredient/>
         </C.Container>
