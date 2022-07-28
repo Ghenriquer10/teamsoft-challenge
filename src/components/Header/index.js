@@ -19,8 +19,8 @@ export default function Header(){
             <C.StreetField>
                 <select>
                     <option>
-                        <p>Entrega:</p>
-                        <p>R. Antoniio Braune, 222</p>
+                        Entrega
+                        R. Antoniio Braune, 222
                     </option>
                 </select>
             </C.StreetField>
