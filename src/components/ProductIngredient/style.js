@@ -64,6 +64,7 @@ export const Cutlery = styled.div`
     .select{
         display: flex;
         flex-direction: column;
+        margin: 8px 0;
     }
 
     .select-option{
