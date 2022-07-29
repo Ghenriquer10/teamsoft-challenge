@@ -26,7 +26,7 @@ Mobile:
 ![mobile-2](https://user-images.githubusercontent.com/61561169/181686465-eff582f3-53b9-47bb-8fc3-4c080c18033e.png)
 
 Modal: 
-![modalmobile](https://user-images.githubusercontent.com/61561169/181686497-48900be9-3495-4302-8c61-bf6dc0db32b4.png)
+![mobile-3](https://user-images.githubusercontent.com/61561169/181688044-d36b9882-c5a0-4e41-9a2b-e23323d0ebd5.png)
 
 ### Caso queira executar esse projeto:
 
