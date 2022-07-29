@@ -12,15 +12,25 @@ export const ProductIngredient = styled.aside`
     font-style: normal;
     padding: 26px;
     border-radius: 10px;
+    
+    @media (min-width: 320px) and (max-width: 768px) {
+        width: 100%;
+        padding: 16px;
+        border: none;
+    }
 
     .ingredient-label, .add-cutlery{
-        width: 375px;
+        width: 100%;
         height: 55px;
         background: rgba(253, 215, 14, 0.2);
         display: flex;
         justify-content: space-around;
         flex-direction: column;
         padding: 16px;
+
+        @media (min-width: 320px) and (max-width: 768px) {
+            width: 100%;
+        }
         
         p:first-child{
             font-weight: 500;
@@ -35,13 +45,71 @@ export const ProductIngredient = styled.aside`
             color: #E49700;
         }
     }
+`;
 
+export const Cutlery = styled.div`
+    width: 100%;
+    @media (min-width: 768px) {
+        display: none;
+    }
     .add-cutlery{
         p:first-child{
             font-weight: 500;
             font-size: 14px;
             line-height: 16px;
             color: #000000;
+        }
+    }
+
+    .select{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .select-option{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 4px 0;
+
+        label{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        input{
+            color: #FEBC10;
+            background-color: red;
+            border: 1px solid red;
+        }
+
+        input[type='radio']:after {
+            width: 16px;
+            height: 16px;
+            border-radius: 15px;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: #ffffff;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 1px solid #FEBC10;
+        }
+
+        input[type='radio']:checked:after {
+            width: 16px;
+            height: 16px;
+            border-radius: 15px;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: #FEBC10;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 1px solid white;
         }
     }
 `;
@@ -57,7 +125,6 @@ export const AddIngredient = styled.div`
     justify-content: space-between;
     padding: 0 16px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
     
     .ingredient-data{
         display: flex;
@@ -91,6 +158,10 @@ export const AddIngredient = styled.div`
         background: #FFFFFF;
         border: 1px solid #F09035;
         border-radius: 5px;
+
+        @media (min-width: 320px) and (max-width: 768px) {
+            width: 100%;
+        }
 
         .ingredient-buttons{
             width: 100%;
@@ -135,6 +206,9 @@ export const SendIngredient = styled.div`
     flex-direction: row;
     justify-content: center;
     gap: 16px;
+    @media (min-width: 320px) and (max-width: 768px) {
+        width: 100%;
+    }
 
     .qtd-cutlery{
         width: 140px;

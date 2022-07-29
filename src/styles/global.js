@@ -1,5 +1,7 @@
 import {createGlobalStyle} from 'styled-components';
 
+// Estilo Global da aplicação
+
 export default createGlobalStyle`
 *{
     padding: 0;
@@ -12,10 +14,12 @@ body, htlm, #root{
     font-family: sans-serif;
 }
 
-body{
+#root{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
 button{

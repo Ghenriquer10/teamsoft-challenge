@@ -11,13 +11,48 @@ export const Container = styled.header`
     padding: 16px 40px;
     gap: 24px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+
+    @media (min-width: 320px) and (max-width: 768px) {
+        width: 100%;
+        justify-content: center;
+    }
+    `;
+
+export const MenuMobile = styled.div`
+    position: absolute;
+    left: 20px;
+    button{
+        border: none;
+    }
+
+    @media (min-width: 768px) {
+        display: none;
+    }
 `;
 
 export const Logo = styled.div`
-    
+    .image1 img{
+
+        @media (min-width: 320px) and (max-width: 768px) {
+            width: 55.26px;
+            height: 32px;
+        }
+    }
+    .image2 img{
+
+        @media (min-width: 320px) and (max-width: 768px) {
+            width:99.7px;
+            height: 28.31px;
+        }
+    }
 `;
 
 export const StreetField = styled.div`
+
+    @media (min-width: 320px) and (max-width: 768px) {
+        display: none;
+    }
+
     select{
         width: 230px;
         height: 48px;
@@ -29,6 +64,9 @@ export const StreetField = styled.div`
 `;
 
 export const SearhField = styled.div`
+    @media (min-width: 320px) and (max-width: 768px) {
+        display: none;
+    }
     .search-item{
         width: 354px;
         height: 48px;
@@ -48,6 +86,11 @@ export const SearhField = styled.div`
 `;
 
 export const Buttons = styled.div`
+
+    @media (min-width: 320px) and (max-width: 768px) {
+        display: none;
+    }
+
     height: 48px;
     width: 200px;
     display: flex;

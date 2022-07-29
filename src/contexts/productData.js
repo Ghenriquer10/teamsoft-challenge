@@ -1,6 +1,7 @@
 import {useState, createContext, useEffect} from 'react'
 import apiData from '../services/api';
 
+// Todos os contextos usados por diferentes componentes sem a necessidade de 'props';
 export const ProductContext = createContext({});
 
 function ProductProvider({children}){
@@ -8,6 +9,8 @@ function ProductProvider({children}){
     const [product, setProduct] = useState();
     const [ingredients, setIngredients] = useState()
     const [loading, setLoading] = useState(true)
+    const [modal, setModal] = useState(false)
+    const [chosedProduct, setChosedProduct] = useState({})
     
     useEffect(() => {
         apiData.get()
@@ -22,7 +25,7 @@ function ProductProvider({children}){
     }, [setProduct])
 
     return(
-        <ProductContext.Provider value={{product, setProduct, loading, setLoading, ingredients}}>
+        <ProductContext.Provider value={{product, setProduct, loading, setLoading, ingredients, modal, setModal, chosedProduct, setChosedProduct}}>
             {children}
         </ProductContext.Provider>
     )

@@ -6,12 +6,35 @@ import { ProductContext } from '../../contexts/productData'
 
 export default function ProductIngredient(){
 
-    const { product, loading, ingredients} = useContext(ProductContext)
+    const { product, loading, ingredients, setModal, setChosedProduct} = useContext(ProductContext)
     const [cheseCheddar, setCheseCheddar] = useState(0)
     const [crispy, setCrispy] = useState(0)
     const [sauceCheddar, setSauceCheddar] = useState(0)
     const [sauceSteak, setSauceSteak] = useState(0)
     const [cutlery, setCutlery] = useState(0)
+
+    function handleProduct(){
+        // Simulando a criação de um novo objeto ja com seus referentes ingredientes escolhidos pelo cliente
+        const chosedproduct = {
+            productId: product.id,
+            productName: product.nm_product,
+            cheseCheddar: cheseCheddar,
+            crispy: crispy,
+            sauceCheddar: sauceCheddar,
+            sauceSteak: sauceSteak,
+            cutlery: cutlery
+        }
+        
+        localStorage.setItem('chosedproduct', JSON.stringify(chosedproduct))
+        setChosedProduct(chosedproduct)
+        setModal(prev => !prev)
+        window.scrollTo(0, 0)
+        
+        // Tempo automático caso o usuário não feche o modal
+        setTimeout(() => {
+             setModal(prev => !prev)
+        }, 3000)
+    }
 
     function plusQtdCheddar(){
         if(cheseCheddar >= 8){
@@ -49,7 +72,7 @@ export default function ProductIngredient(){
     }
 
     function minusQtdsauceCheddar(){
-        if(crispy === 0){
+        if(sauceCheddar === 0){
             return
         }
         setSauceCheddar(sauceCheddar - 1)
@@ -105,11 +128,19 @@ export default function ProductIngredient(){
                         <div className='ingredient-qtd'>
                             <div className='ingredient-buttons'>
                                 <button onClick={minusQtdChedar}>
-                                    <BiMinus size={22}/>
+                                    {cheseCheddar === 0 ? (
+                                        <BiMinus size={22} color={"#AEB6C1"}/>
+                                        ): 
+                                        (<BiMinus size={22} color/>)
+                                    }
                                 </button>
                                 <input readOnly value={cheseCheddar}/>
                                 <button onClick={plusQtdCheddar}>
-                                    <BiPlus size={22}/>
+                                    {cheseCheddar === 8 ? (
+                                        <BiPlus size={22} color={"#AEB6C1"}/>
+                                        ): 
+                                        (<BiPlus size={22} color/>)
+                                    }
                                 </button>
                             </div>
                         </div>
@@ -124,11 +155,19 @@ export default function ProductIngredient(){
                         <div className='ingredient-qtd'>
                             <div className='ingredient-buttons'>
                                 <button onClick={minusQtdCripsy}>
-                                    <BiMinus size={22}/>
+                                    {crispy === 0 ? (
+                                        <BiMinus size={22} color={"#AEB6C1"}/>
+                                        ): 
+                                        (<BiMinus size={22} color/>)
+                                    }
                                 </button>
                                 <input readOnly value={crispy}/>
                                 <button onClick={plusQtdCripsy}>
-                                    <BiPlus size={22}/>
+                                    {crispy === 8 ? (
+                                        <BiPlus size={22} color={"#AEB6C1"}/>
+                                        ): 
+                                        (<BiPlus size={22} color/>)
+                                    }
                                 </button>
                             </div>
                         </div>
@@ -143,11 +182,19 @@ export default function ProductIngredient(){
                         <div className='ingredient-qtd'>
                             <div className='ingredient-buttons'>
                                 <button onClick={minusQtdsauceCheddar}>
-                                    <BiMinus size={22}/>
+                                    {sauceCheddar === 0 ? (
+                                        <BiMinus size={22} color={"#AEB6C1"}/>
+                                        ): 
+                                        (<BiMinus size={22} color/>)
+                                    }
                                 </button>
                                 <input readOnly value={sauceCheddar}/>
                                 <button onClick={plusQtdsauceCheddar}>
-                                    <BiPlus size={22}/>
+                                    {sauceCheddar === 8 ? (
+                                        <BiPlus size={22} color={"#AEB6C1"}/>
+                                        ): 
+                                        (<BiPlus size={22} color/>)
+                                    }
                                 </button>
                             </div>
                         </div>
@@ -162,31 +209,58 @@ export default function ProductIngredient(){
                         <div className='ingredient-qtd'>
                             <div className='ingredient-buttons'>
                                 <button onClick={minusQtdSauceSteak}>
-                                    <BiMinus size={22}/>
+                                    {sauceSteak === 0 ? (
+                                        <BiMinus size={22} color={"#AEB6C1"}/>
+                                        ): 
+                                        (<BiMinus size={22} color/>)
+                                    }
                                 </button>
                                 <input readOnly value={sauceSteak}/>
                                 <button onClick={plusQtdSauceSteak}>
-                                    <BiPlus size={22}/>
+                                    {sauceSteak === 8 ? (
+                                        <BiPlus size={22} color={"#AEB6C1"}/>
+                                        ): 
+                                        (<BiPlus size={22} color/>)
+                                    }
                                 </button>
                             </div>
                         </div>
                     </C.AddIngredient>
-
-                    <div className='add-cutlery'>
-                        <p>Precisa de Talher?</p>
-                    </div>
+                    <C.Cutlery>
+                        <div className='add-cutlery'>
+                            <p>Precisa de Talher?</p>
+                        </div>
+                        <div className='select'>
+                            <div className='select-option'>
+                                <label htmlFor="yes">Sim</label>
+                                <input name='need-cutlery' id="yes" type={'radio'} value="Sim"/>
+                            </div>
+                            <div className='select-option'>
+                                <label htmlFor="no">Não</label>
+                                <input name='need-cutlery' id="no" type={'radio'}value="Não"/>
+                            </div>
+                        </div>
+                    </C.Cutlery>
                     <C.SendIngredient>
                         <div className='qtd-cutlery'>
                             <button onClick={minusCutlery}>
-                                    <BiMinus size={22}/>
+                                {cutlery === 0 ? (
+                                    <BiMinus size={22} color={"#AEB6C1"}/>
+                                        ): 
+                                    (<BiMinus size={22} color/>)
+                                }
                             </button>
                                 <input value={cutlery} readOnly/>
                             <button onClick={plusCutlery}>
-                                    <BiPlus size={22}/>
+                                {cutlery === 8 ? (
+                                    <BiPlus size={22} color={"#AEB6C1"}/>
+                                        ): 
+                                    (<BiPlus size={22} color/>)
+                                }
                             </button>
                         </div>
                         <div className='add-ingredient'>
-                            <button>Adicionar</button>
+                            <button onClick={handleProduct}>Adicionar</button>
                         </div>
                     </C.SendIngredient>
                 </>

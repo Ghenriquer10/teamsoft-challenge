@@ -10,4 +10,22 @@ export const Container = styled.main`
     gap: 10px;
     font-family: 'Roboto';
     font-style: normal;
+
+    @media (min-width: 320px) and (max-width: 768px) {
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        gap: 0;
+    }
+
+    .animated{
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        opacity: 1.5;
+    }
 `;

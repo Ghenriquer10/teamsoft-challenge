@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 208px;
-    height: 146px;
+    height: 156px;
     font-family: 'Roboto Condensed';
+    background: white;
 
     .title{
         width: 208px;
@@ -46,6 +47,7 @@ export const Container = styled.div`
             font-size: 12px;
             line-height: 100%;
             color: #4E4E4E;
+            background: white;
         }
 
         li{

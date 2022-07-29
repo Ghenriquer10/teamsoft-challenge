@@ -4,12 +4,18 @@ import logo1 from '../../assets/images/Deliverize-Logo-1.png';
 import logo2 from '../../assets/images/Deliverize-Logo-2.png';
 import {BiUserCircle} from 'react-icons/bi'
 import {BsCart3} from 'react-icons/bs'
+import {MdOutlineChevronLeft} from 'react-icons/md'
 import { Link } from 'react-router-dom';
 
 
 export default function Header(){
     return(
         <C.Container>
+            <C.MenuMobile>
+                <button>
+                    <MdOutlineChevronLeft size={25}/>
+                </button>
+            </C.MenuMobile>
             <C.Logo>
                 <Link to={'/'}>
                     <img className='image1' src={logo1} alt='logo desenho da empresa'/>
